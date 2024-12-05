@@ -37,7 +37,7 @@ const Navbar = () => {
                         <div className="hidden md:flex space-x-4">
                             <NavLink to="/dashboard">Panel</NavLink>
                             <NavLink to="/meetings">Reuniones</NavLink>
-                            <NavLink to="/transcription">Transcripción</NavLink>
+                            {/* <NavLink to="/transcription">Transcripción</NavLink> */}
                         </div>
                     )}
 
@@ -79,7 +79,7 @@ const Navbar = () => {
                         <div className="flex flex-col space-y-2">
                             <NavLink to="/dashboard">Panel</NavLink>
                             <NavLink to="/meetings">Reuniones</NavLink>
-                            <NavLink to="/transcription">Transcripción</NavLink>
+                            {/* <NavLink to="/transcription">Transcripción</NavLink> */}
                         </div>
                     </div>
                 )}

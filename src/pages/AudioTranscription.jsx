@@ -3,14 +3,18 @@ import React, { useState } from 'react';
 const AudioTranscription = ({ meetingId, transcription, onTranscriptionComplete }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    const token = localStorage.getItem('token');
 
     const handleTranscription = async () => {
         setIsLoading(true);
         setError(null);
         
         try {
-            const response = await fetch(`/api/meetings/${meetingId}/transcribe`, {
+            const response = await fetch(`http://localhost:5000/api/meetings/${meetingId}/transcribe`, {
                 method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
             });
             
             if (!response.ok) {

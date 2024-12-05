@@ -30,12 +30,15 @@ const MeetingPage = () => {
     try {
       // TODO: Implement these service functions
       const transcriptionData = await getTranscriptionByMeetingId(meeting._id);
-      const notesData = await getNotesByTranscriptionId(transcriptionData.id);
-      setTranscription(transcriptionData);
-      setNotes(notesData);
-
+      if (transcriptionData && transcriptionData.id) {
+        const notesData = await getNotesByTranscriptionId(transcriptionData.id);
+        setTranscription(transcriptionData);
+        setNotes(notesData);
+      } else {
+        console.warn('No transcription data found for the selected meeting.');
+      }
       console.log('transcriptionData', transcriptionData);
-      console.log('notesData', notesData);
+      // console.log('notesData', notesData);
     } catch (error) {
       console.error('Error fetching meeting details:', error);
     }
